@@ -48,14 +48,21 @@ prompt([
                     message: 'Which item would you like to bid on?',
                     choices: posts.map(obj => obj.item)
                 }
-            ])  .then((dbResponse) => {
-                console.log(dbResponse);
-                connection.query('INSERT INTO auction_post SET ?', {
-                    price: dbResponse
-                  }, (err) => {
+            ]) .then((dbResponse) => {                
+                prompt([
+                    {
+                        type: 'input',
+                        name: 'bidItemBid',
+                        message: 'How much would you like to bid?',
+                    }
+                ]) .then((response) => {
+                    connection.query('UPDATE auction_post SET ? WHERE ?',[{
+                    price: parseInt(response.bidItemBid)
+                    },{item: dbResponse.chooseBidItem}], (err, data) => {
                     if (err) { console.log(err) }
-                    console.log('Bid Success!')
-                  })
+                    console.log(data.info)
+                    })
+                })
             })
         })
     }
