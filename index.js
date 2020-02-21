@@ -36,19 +36,17 @@ prompt([
         })
         .catch (e => console.log(e))
     } else {
-        let item;
+        let item
         connection.query('SELECT * FROM auction_post', (err, posts) => {
             if (err) { console.log(err) }
             // console.log(posts[0].item);
-            item = posts[0].item
+            
             prompt([
                 {
                     type: 'list',
                     name: 'chooseBidItem',
                     message: 'Which item would you like to bid on?',
-                    choices: [
-                        item
-                    ]
+                    choices: posts.map(obj => obj.item)
                 }
             ])  .then((dbResponse) => {
                 console.log(dbResponse);
