@@ -1,0 +1,24 @@
+{
+  "name": "nodeMySQLeBay",
+  "version": "1.0.0",
+  "description": "Ebay clone using inquirer and mysql2.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^7.0.4",
+    "mysql2": "^2.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EvanErickson/bidOrPostMySQL.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EvanErickson/bidOrPostMySQL/issues"
+  },
+  "homepage": "https://github.com/EvanErickson/bidOrPostMySQL#readme"
+}
